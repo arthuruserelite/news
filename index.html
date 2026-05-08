@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate News Blog</title>
+    <style>
+        :root {
+            --primary: #003366;
+            --accent: #0056b3;
+            --bg: #f4f7f9;
+            --text: #2c3e50;
+            --white: #ffffff;
+            --gray: #7f8c8d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1.2rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #bdc3c7;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.85)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .card-content {
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .tag {
+            background: rgba(0, 51, 102, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            font-size: 0.7rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            margin-bottom: 12px;
+            font-size: 1.5rem;
+            color: var(--primary);
+            line-height: 1.3;
+        }
+
+        .date {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card p {
+            color: #5d6d7e;
+            font-size: 1rem;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: auto;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Estilo para facilitar a inserção de conteúdo pelo utilizador */
+        .admin-note {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #856404;
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 2rem; }
+            .news-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">CorpNews Hub</div>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Notícias</a></li>
+                <li><a href="#">Arquivo</a></li>
+                <li><a href="#">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Blog Corporativo de Notícias</h1>
+        <p>A plataforma central para todas as atualizações importantes e autorizadas.</p>
+    </section>
+
+    <div class="container">
+        
+        <div class="admin-note">
+            <strong>Instrução:</strong> Para adicionar uma nova notícia, basta copiar o bloco de código <code>&lt;article class="card"&gt;</code> abaixo e colar os teus textos nos campos de título, data e parágrafo.
+        </div>
+
+        <div class="news-grid">
+            
+            <!-- INÍCIO DA NOTÍCIA 1 -->
+            <article class="card">
+                <div class="card-content">
+                    <span class="tag">Destaque</span>
+                    <h2>Título da Tua Primeira Notícia</h2>
+                    <span class="date">8 de Maio, 2024</span>
+                    <p>Aqui podes escrever o conteúdo que desejas. Este layout foi desenhado para ser limpo e profissional, ideal para o GitHub Pages.</p>
+                    <a href="#" class="btn">Ler notícia completa →</a>
+                </div>
+            </article>
+            <!-- FIM DA NOTÍCIA 1 -->
+
+            <!-- INÍCIO DA NOTÍCIA 2 -->
+            <article class="card">
+                <div class="card-content">
+                    <span class="tag">Atualização</span>
+                    <h2>Informações Autorizadas</h2>
+                    <span class="date">7 de Maio, 2024</span>
+                    <p>Este é o segundo bloco. Podes usar este espaço para colocar as notícias sobre as pessoas que mencionaste, já que tens a autorização necessária.</p>
+                    <a href="#" class="btn">Ler notícia completa →</a>
+                </div>
+            </article>
+            <!-- FIM DA NOTÍCIA 2 -->
+
+            <!-- INÍCIO DA NOTÍCIA 3 -->
+            <article class="card">
+                <div class="card-content">
+                    <span class="tag">Comunicado</span>
+                    <h2>Novos Projetos e Metas</h2>
+                    <span class="date">6 de Maio, 2024</span>
+                    <p>Espaço reservado para o teu terceiro tópico. O design adapta-se automaticamente ao tamanho do texto que inserires.</p>
+                    <a href="#" class="btn">Ler notícia completa →</a>
+                </div>
+            </article>
+            <!-- FIM DA NOTÍCIA 3 -->
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 CorpNews Hub. Todos os direitos reservados.<br>Hospedado com orgulho no GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
