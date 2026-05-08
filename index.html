@@ -3,162 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buchas do Arthur</title>
+    <title>Archive - Arthur</title>
     <style>
+        /* RESET E CORES MODERNAS */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary: #003366;
-            --accent: #0056b3;
-            --bg: #f4f7f9;
-            --text: #2c3e50;
-            --white: #ffffff;
+            --bg: #0a0a0a;
+            --card-bg: #161616;
+            --accent: #ff3e3e; /* Vermelho vibrante para destaque */
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
+            color: var(--text-main);
+            line-height: 1.6;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
+        /* HEADER ESTILO GLASSMORPHISM */
         header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1.5rem 5%;
+            padding: 2rem;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #333;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
+        header h1 {
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        /* CONTAINER PRINCIPAL */
         .container {
-            max-width: 800px;
-            margin: 50px auto;
+            max-width: 700px;
+            margin: 60px auto;
             padding: 0 20px;
             flex: 1;
         }
 
+        /* CARD ESTILO TERMINAL/MODERNO */
         .card {
-            background: white;
-            border-radius: 12px;
+            background: var(--card-bg);
+            border-radius: 4px;
             padding: 40px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        .tag {
-            background: rgba(0, 51, 102, 0.1);
-            color: var(--primary);
-            padding: 5px 12px;
-            font-size: 0.75rem;
-            border-radius: 20px;
-            text-transform: uppercase;
+        .status-tag {
+            font-size: 0.7rem;
+            background: #333;
+            padding: 4px 8px;
+            border-radius: 2px;
+            color: var(--accent);
             font-weight: bold;
+            margin-bottom: 15px;
+            display: inline-block;
         }
 
         h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin: 20px 0 10px;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 800;
         }
 
-        .date {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            margin-bottom: 20px;
-            display: block;
+        .metadata {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-bottom: 25px;
+            text-transform: uppercase;
         }
 
         .resumo {
             font-size: 1.1rem;
-            line-height: 1.6;
+            color: var(--text-dim);
             margin-bottom: 30px;
         }
 
-        .btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 6px;
+        /* BOTÃO IMPACTANTE */
+        .btn-action {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 12px 30px;
             font-weight: bold;
+            text-transform: uppercase;
             cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
         }
 
-        .btn:hover {
-            background-color: var(--accent);
+        .btn-action:hover {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 0 20px rgba(255, 62, 62, 0.4);
         }
 
-        /* TEXTO ESCONDIDO */
-        #conteudo-completo {
+        /* CONTEÚDO EXPANSÍVEL */
+        #hidden-content {
             display: none;
             margin-top: 30px;
             padding-top: 30px;
-            border-top: 2px solid #f0f0f0;
-            line-height: 1.8;
-            color: #444;
+            border-top: 1px solid #333;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .link-box {
+            display: block;
+            margin-top: 20px;
+            padding: 20px;
+            background: #000;
+            border: 1px dashed #444;
+            color: var(--accent);
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .link-box:hover {
+            border-color: var(--accent);
         }
 
         footer {
-            background: #1a252f;
-            color: white;
+            padding: 40px;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            font-size: 0.7rem;
+            color: #444;
+            letter-spacing: 2px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div style="font-size: 1.5rem; font-weight: 800; letter-spacing: 1px;">Site Arthur</div>
+        <h1>DATABASE_ACCESS // ARTHUR</h1>
     </header>
 
     <div class="container">
         <article class="card">
-            <span class="tag">Destaque Atualizado</span>
+            <div class="status-tag">ARQUIVO ATIVO</div>
             
-            <h2>P.drinhosla vulgo Pedro </h2>
+            <h2>P.drinhosla // Pedro</h2>
             
-            <span class="date">Postado em: 8 de Maio de 2026</span>
+            <div class="metadata">Data de Registo: 08.05.2026 // Local: GitHub</div>
             
             <p class="resumo">
-                Aos que pergutam sobre Pedro meu ex, decidi criar esse site no github com todo material coletado, clique e veja tambem o link com todas as prints tiradas e todo movimento na conta @p.drinhosla na rede social instagram .
+                Compilado de dados e registos digitais referentes ao perfil @p.drinhosla. Informação organizada para consulta rápida de movimentações e evidências coletadas desde o dia 23/03.
             </p>
 
-            <button class="btn" onclick="mostrarNoticia()">Ler notícia completa ↓</button>
+            <button class="btn-action" onclick="toggleData()">Desencriptar Dados ↓</button>
 
-            <div id="conteudo-completo">
-                <h3>Detalhes da Informação</h3>
-                <p>
-                    No dia 10/03 recebi uma mensagem de uma "amiga", no conteudo da mensagem havia uma saudaçao e logo em seguida ela me disse o seguinte: eu tenho um amigo interresado em você, como nao sou bobo nem nada falei: OXI MEU ANJO NA HORA DIGA QUEM E O GLORIOSO.
-                    Ela me mostrou uma foto e me apaixonei, nao entrarei em muitos detalhes mais Desde o dia do termino 23/03 monitoro constantimente o instagram dele 
-                    prints abaixo 
-                    https://drive.google.com/drive/folders/1_WOCuIy7ZZGYSQ-CzYTZlmKn8_Wgxw-a
+            <div id="hidden-content">
+                <p style="margin-bottom: 20px;">
+                    <strong>Relatório:</strong> No dia 10/03, após contacto de uma intermediária, foi estabelecido o interesse. Desde a rutura em 23/03, o perfil tem sido monitorizado para salvaguarda de informações.
                 </p>
-                <p>
-                </p>
+                
+                <p>Abaixo encontra-se o acesso direto à nuvem de armazenamento contendo todas as capturas de telas  (prints) e registos de atividade do instagram:</p>
+
+                <a href="https://drive.google.com/drive/folders/1_WOCuIy7ZZGYSQ-CzYTZlmKn8_Wgxw-a" target="_blank" class="link-box">
+                    ABRIR REPOSITÓRIO DE EVIDÊNCIAS (DRIVE)
+                </a>
             </div>
         </article>
     </div>
 
     <footer>
-        <p>&copy; 2026 Direitos Reservados Pra Arthur Bitti,     infelizmente esse site teve que ser feito</p>
+        &copy; 2026 ARTHUR BITTI // SECURE ARCHIVE
     </footer>
 
     <script>
-        function mostrarNoticia() {
-            var conteudo = document.getElementById("conteudo-completo");
-            var botao = document.querySelector(".btn");
+        function toggleData() {
+            var content = document.getElementById("hidden-content");
+            var btn = document.querySelector(".btn-action");
             
-            if (conteudo.style.display === "block") {
-                conteudo.style.display = "none";
-                botao.innerHTML = "Ler notícia completa ↓";
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                btn.innerHTML = "Desencriptar Dados ↓";
             } else {
-                conteudo.style.display = "block";
-                botao.innerHTML = "Fechar notícia ↑";
+                content.style.display = "block";
+                btn.innerHTML = "Fechar Acesso ↑";
             }
         }
     </script>
